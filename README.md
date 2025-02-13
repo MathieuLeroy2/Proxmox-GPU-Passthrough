@@ -16,6 +16,11 @@ open your web gui -> https://ip:8006 Open shell on PVE
 
 Follow the instruction for GRUB if you did the GRUB2 install or for Systemd for the Ventoy normal install
 
+Booting Proxmox using Ventoy Grub2 can give Ramdisk problems:
+  i had that problem with ventoy. dont know why but proxmox tries to use ventoy's ram disk as it's own. here is the fix:
+  press "E" when you're choosing to boot proxmox and remove ramdisk option at the end of linux variale. then Ctl + X to boot with that option. Got to do this everytime :)
+  I'm not 100% sure but i guess using normal mode in ventoy ( not the grub2) fixes the issue as well.
+
 Initial GRUB -----------------------
 
 nano /etc/default/grub Modify this line GRUB_CMDLINE_LINUX_DEFAULT=....
